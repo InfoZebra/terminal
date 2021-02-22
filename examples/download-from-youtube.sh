@@ -1,1 +1,1 @@
-ls
+mkdir delete
