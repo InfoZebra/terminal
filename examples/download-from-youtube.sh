@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 for arg in "$@"
 do
 index=$(echo $arg | cut -f1 -d=)
