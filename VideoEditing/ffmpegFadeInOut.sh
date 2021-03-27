@@ -15,7 +15,6 @@ See /usr/share/doc/bash-doc/examples in the bash-doc package
 : "
 # InfoZebra aliases
 alias fdio='/home/anonymous/Programs/BashScripts/ffmpegFadeInOut.sh'
-#>
 "
 # Ctrl+S and restart Terminal
 # see below where you can store this script
@@ -27,8 +26,8 @@ echo Type path to video:
 read path
 suffix="faded"
 out=$(echo $path | cut -d'.' -f 1)"-$suffix.mp4"
-echo $out
 lenght=$(ffprobe -v quiet -of csv=p=0 -show_entries format=duration "$path")
+lenght=$(echo $lenght-1 | bc) 
 echo $lenght
 
 ffmpeg -i "$path" -vf "fade=t=in:st=0:d=1,fade=t=out:st=$lenght:d=1" "$out"
